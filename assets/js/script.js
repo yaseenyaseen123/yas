@@ -5,7 +5,10 @@ let products = [];
 // WhatsApp Configuration
 const WHATSAPP_NUMBER = '15514305144';
 
-// Sample Products Data
+// API Configuration
+const API_BASE_URL = 'https://8xhpiqce8y8e.manus.space/api';
+
+// Sample Products Data (fallback)
 const sampleProducts = [
     {
         id: 1,
@@ -98,12 +101,57 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeApp() {
-    products = [...sampleProducts];
+    loadProductsFromAPI();
     setupEventListeners();
-    renderProducts(products);
     updateCartUI();
     setupSmoothScrolling();
     setupNavbarScroll();
+    loadCartFromStorage();
+}
+
+// API Functions
+async function loadProductsFromAPI() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/frontend/products`);
+        if (response.ok) {
+            const apiProducts = await response.json();
+            if (apiProducts && apiProducts.length > 0) {
+                products = apiProducts;
+                renderProducts(products);
+                return;
+            }
+        }
+    } catch (error) {
+        console.error('Error loading products from API:', error);
+    }
+    
+    // Fallback to sample products
+    products = [...sampleProducts];
+    renderProducts(products);
+}
+
+async function submitOrderToAPI(orderData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/frontend/orders`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderData)
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Order submitted successfully:', result);
+            return true;
+        } else {
+            console.error('Failed to submit order:', response.statusText);
+            return false;
+        }
+    } catch (error) {
+        console.error('Error submitting order:', error);
+        return false;
+    }
 }
 
 // Event Listeners Setup
@@ -250,12 +298,35 @@ function updateCartUI() {
 }
 
 // Buy Now
-function buyNow(productId) {
+async function buyNow(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
     
+    // Prepare order data for API
+    const orderData = {
+        products: [{
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            quantity: 1
+        }],
+        total_price: product.price,
+        customer_name: 'عميل من المتجر',
+        customer_whatsapp: WHATSAPP_NUMBER
+    };
+    
+    // Submit order to API
+    const orderSubmitted = await submitOrderToAPI(orderData);
+    
+    // Create WhatsApp message
     const message = createWhatsAppMessage([product]);
     openWhatsApp(message);
+    
+    if (orderSubmitted) {
+        showNotification('تم إرسال الطلب بنجاح!', 'success');
+    } else {
+        showNotification('تم إرسال الطلب عبر واتساب', 'info');
+    }
 }
 
 // Open Cart Modal
@@ -331,19 +402,43 @@ function renderCartItems() {
 }
 
 // Handle Checkout
-function handleCheckout() {
+async function handleCheckout() {
     if (cart.length === 0) {
         showNotification('السلة فارغة!', 'warning');
         return;
     }
     
+    // Prepare order data for API
+    const orderData = {
+        products: cart.map(item => ({
+            id: item.id,
+            title: item.title,
+            price: item.price,
+            quantity: item.quantity
+        })),
+        total_price: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+        customer_name: 'عميل من المتجر', // يمكن تحسينه لاحقاً لطلب اسم العميل
+        customer_whatsapp: WHATSAPP_NUMBER
+    };
+    
+    // Submit order to API
+    const orderSubmitted = await submitOrderToAPI(orderData);
+    
+    // Create WhatsApp message
     const message = createWhatsAppMessage(cart);
     openWhatsApp(message);
     
     // Clear cart after checkout
     cart = [];
     updateCartUI();
+    saveCartToStorage();
     closeModals();
+    
+    if (orderSubmitted) {
+        showNotification('تم إرسال الطلب بنجاح!', 'success');
+    } else {
+        showNotification('تم إرسال الطلب عبر واتساب', 'info');
+    }
 }
 
 // Create WhatsApp Message
