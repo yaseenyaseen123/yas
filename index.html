@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الحرية - للمنتجات الرقمية</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 class="logo">
+                        <i class="fas fa-crown"></i>
+                        متجر الحرية
+                    </h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">الرئيسية</a></li>
+                    <li><a href="#products" class="nav-link">المنتجات</a></li>
+                    <li><a href="#about" class="nav-link">من نحن</a></li>
+                    <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
+                </ul>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    مرحباً بك في 
+                    <span class="gradient-text">متجر الحرية</span>
+                </h1>
+                <p class="hero-subtitle">
+                    أفضل المنتجات الرقمية بأسعار منافسة وجودة عالية
+                </p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i>
+                        تسوق الآن
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        اعرف المزيد
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-download"></i>
+                    <h3>منتجات رقمية</h3>
+                    <p>تحميل فوري</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>تحميل فوري</h3>
+                    <p>احصل على منتجاتك فور الشراء</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>آمن ومضمون</h3>
+                    <p>جميع المعاملات آمنة ومحمية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم 24/7</h3>
+                    <p>فريق الدعم متاح في أي وقت</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>جودة عالية</h3>
+                    <p>منتجات مختارة بعناية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">منتجاتنا المميزة</h2>
+                <p class="section-subtitle">اكتشف مجموعة واسعة من المنتجات الرقمية عالية الجودة</p>
+            </div>
+            
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">الكل</button>
+                <button class="category-btn" data-category="templates">قوالب</button>
+                <button class="category-btn" data-category="courses">دورات</button>
+                <button class="category-btn" data-category="ebooks">كتب إلكترونية</button>
+                <button class="category-btn" data-category="software">برمجيات</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">من نحن</h2>
+                    <p>
+                        متجر الحرية هو وجهتك الأولى للحصول على أفضل المنتجات الرقمية. 
+                        نحن نؤمن بأن التكنولوجيا يجب أن تكون في متناول الجميع، 
+                        لذلك نقدم منتجات عالية الجودة بأسعار منافسة.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>1000+</h3>
+                            <p>عميل راضٍ</p>
+                        </div>
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>منتج رقمي</p>
+                        </div>
+                        <div class="stat">
+                            <h3>24/7</h3>
+                            <p>دعم فني</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>رؤيتنا</h3>
+                        <p>أن نكون الرائدين في مجال المنتجات الرقمية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>واتساب</h3>
+                            <p>+1 (551) 430-5144</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>البريد الإلكتروني</h3>
+                            <p>info@freedom-store.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>ساعات العمل</h3>
+                            <p>24/7 متاح دائماً</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="whatsapp-cta">
+                    <h3>تحدث معنا مباشرة</h3>
+                    <p>للاستفسارات والدعم الفني</p>
+                    <a href="https://wa.me/15514305144" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        تواصل عبر واتساب
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>متجر الحرية</h3>
+                    <p>وجهتك الأولى للمنتجات الرقمية عالية الجودة</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/15514305144"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>الفئات</h4>
+                    <ul>
+                        <li><a href="#">قوالب</a></li>
+                        <li><a href="#">دورات</a></li>
+                        <li><a href="#">كتب إلكترونية</a></li>
+                        <li><a href="#">برمجيات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>معلومات</h4>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 متجر الحرية. جميع الحقوق محفوظة.</p>
+                <p class="designer-credit">تصميم: <span class="designer-name">فلسطيني 🇵🇸</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>سلة التسوق</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items"></div>
+                <div class="cart-total">
+                    <h3>المجموع: <span id="cart-total">$0</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-primary" id="checkout-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        إتمام الشراء عبر واتساب
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-product-title"></h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="product-details">
+                    <img id="modal-product-image" src="" alt="">
+                    <div class="product-info">
+                        <p id="modal-product-description"></p>
+                        <div class="product-price">
+                            <span id="modal-product-price"></span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" id="modal-add-to-cart">
+                                <i class="fas fa-cart-plus"></i>
+                                إضافة للسلة
+                            </button>
+                            <button class="btn btn-whatsapp" id="modal-buy-now">
+                                <i class="fab fa-whatsapp"></i>
+                                اشتري الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+
